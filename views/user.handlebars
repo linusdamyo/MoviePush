@@ -1,0 +1,59 @@
+{{#if user}}
+	<div class="container">
+		<p>반갑습니다! {{user.username}}님</p>
+	</div>
+
+	{{#if device}}
+		<div class="container">
+			<h4><b>등록된 기기</b></h4>
+			{{#device}}
+				<div class="row">
+					<div class="device-left-col col-xs-6">{{type}}</div>
+					<div class="device-right-col col-xs-6">{{deviceid}}...</div>
+				</div>
+			{{/device}}
+			<div class="row device-border">
+			</div>
+			<div class="row">
+				<br />
+				<button class="btn btn-danger" onClick="delDevice();"><i class="fa fa-trash-o"></i> 모든 기기 삭제</button>
+				<script>
+					function delDevice() {
+						if (!confirm("모든 기기가 삭제됩니다. 계속하시겠습니까?")) {
+							return;
+						}
+						location.href = "/del_push";
+					}
+				</script>
+			</div>
+			<br/>
+			<p>기기 추가 등록을 원하시면,<br />
+			해당 기기에서 로그인 후<br />
+			아래 버튼을 누르시면 추가 등록됩니다.</p>
+			<a href="/reg_push"><button class="btn btn-primary btn-sm"><i class="fa fa-film"></i> MoviePush <i class="fa fa-film"></i> 등록</button></a>
+		</div>
+	{{else}}
+
+		<div class="container">
+			<p>OfficeHard 앱으로 로그인이 필요합니다.</p>
+			<div>
+				<p>
+					<a href="itms-services://?action=download-manifest&url=https://cs.officehard.com/release_mm/ver_ios.plist?1438580437"><button class="btn btn-default mobile-down-btn"><i class="fa fa-apple"></i> iPhone</button></a>
+					<a href='http://cs.officehard.com/release_mm/vex_android_1.1.0.apk'><button class="btn btn-default mobile-down-btn"><i class="fa fa-android"></i> Android</button></a>
+				</p>
+			</div>
+			<br/>
+			<p>앱 로그인 이후에, 아래 버튼을 누르시면</p>
+			<p>MoviePush에 등록됩니다.</p>
+			<a href="/reg_push"><button class="btn btn-primary btn-sm"><i class="fa fa-film"></i> MoviePush <i class="fa fa-film"></i> 등록</button></a>
+		</div>
+
+	{{/if}}
+
+{{else}}
+
+  <div>
+	<p><a href="/" class="logout-url">돌아가기</a></p>
+  </div>
+
+{{/if}}

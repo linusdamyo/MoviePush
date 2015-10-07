@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MoviePush</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<!-- All the files that are required -->
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="images/mp120.png"/>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylesheets/MoviePush.css">
+<link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+<div class="container text-center">
+<!-- Where all the magic happens -->
+
+{{#if user}}
+	<div class="text-right"><a href="/logout" class="logout-url">Logout</a></div>
+{{/if}}
+
+<!-- LOGIN FORM -->
+
+  <div class="container logo">
+	 <p><i class="fa fa-film"></i> MoviePush <i class="fa fa-film"></i></p>
+  </div>
+
+  <div class="container">
+{{#if error}}
+  <p class="alert alert-warning">{{error}}</p>
+{{/if}}
+
+{{#if success}}
+  <p class="alert alert-success">{{success}}</p>
+{{/if}}
+
+{{#if notice}}
+  <p class="alert alert-info">{{notice}}</p>
+{{/if}}
+  </div>
+
+{{{body}}}
+
+</div>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
